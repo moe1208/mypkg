@@ -22,8 +22,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'age.py = mypkg.age.py:main',
-            'listener = mypkg.listener:main',
+            'talker = mypkg.age:main',
         ],
     },
 )
