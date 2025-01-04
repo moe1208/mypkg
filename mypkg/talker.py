@@ -7,14 +7,14 @@ node = Node("talker")
 
 
 def cb(request, response):
-    global n
-    msg = Person()
-    msg.name = "栗崎萌笑"
-    msg.age = n
-    pub.publish(msg)
-    n += 1
+    if request.name == "栗崎萌笑":
+        response.age = 20
+    else:
+        response.age = 255
+
+    return response
 
 
 def main():
-    node.create_timer(0.5, cb)
+    srv = node.create_service(Query, "query", cb)
     rclpy.spin(node)
